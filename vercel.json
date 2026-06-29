@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "viabilidade-imobiliaria",
   "builds": [
     {
       "src": "index.html",
