@@ -4,7 +4,7 @@ on:
     branches:
       - mvp-next
     paths:
-      - application.tar.gz
+      - application.tar.gz.b64
 
 permissions:
   contents: write
@@ -24,10 +24,10 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p /tmp/viabilidade-source
-          tar -xzf application.tar.gz -C /tmp/viabilidade-source
+          tar -xzf application.tar.gz.b64 -C /tmp/viabilidade-source
           test -d /tmp/viabilidade-source/viabilidade-imobiliaria-app
           cp -a /tmp/viabilidade-source/viabilidade-imobiliaria-app/. .
-          rm -f application.tar.gz
+          rm -f application.tar.gz.b64
           # Remove the old static-only override so Vercel can detect Next.js.
           rm -f vercel.json
           git config user.name "github-actions[bot]"
